@@ -100,6 +100,14 @@ dependencyResolutionManagement {
 def buildProperties = BuildPropertiesKt.getKotlinBuildPropertiesForSettings(settings)
 
 // modules
+
+include ":kotlin-allopen-compiler-plugin",
+        ":kotlin-allopen-compiler-plugin.embeddable",
+        ":kotlin-allopen-compiler-plugin.common",
+        ":kotlin-allopen-compiler-plugin.k1",
+        ":kotlin-allopen-compiler-plugin.k2",
+        ":kotlin-allopen-compiler-plugin.cli"
+
 include ":benchmarks",
         ":compiler",
         ":compiler:util",
@@ -146,12 +154,14 @@ include ":benchmarks",
         ":compiler:ir.serialization.common",
         ":compiler:ir.serialization.jvm",
         ":compiler:ir.serialization.js",
+        ":compiler:ir.serialization.ts",
         ":compiler:ir.serialization.native",
         ":compiler:ir.interpreter",
         ":compiler:ir.inline",
         ":compiler:ir.validation",
         ":compiler:backend.js",
         ":compiler:backend.wasm",
+        ":compiler:backend.ts",
         ":compiler:backend.jvm",
         ":compiler:backend.jvm.lower",
         ":compiler:backend.jvm.codegen",
@@ -237,14 +247,6 @@ include ":benchmarks",
         ":dependencies:bootstrap:kotlin-tooling-core-bootstrap",
         ":dependencies:bootstrap:kotlin-compiler-embeddable-bootstrap",
         ":dependencies:bootstrap:kotlin-compiler-runner-bootstrap"
-
-include ":kotlin-allopen-compiler-plugin",
-        ":kotlin-allopen-compiler-plugin.embeddable",
-        ":kotlin-allopen-compiler-plugin.common",
-        ":kotlin-allopen-compiler-plugin.k1",
-        ":kotlin-allopen-compiler-plugin.k2",
-        ":kotlin-allopen-compiler-plugin.cli"
-
 include ":kotlin-noarg-compiler-plugin",
         ":kotlin-noarg-compiler-plugin.embeddable",
         ":kotlin-noarg-compiler-plugin.common",
@@ -847,6 +849,7 @@ project(':compiler:ir.actualization').projectDir = "$rootDir/compiler/ir/ir.actu
 project(':compiler:ir.inline').projectDir = "$rootDir/compiler/ir/ir.inline" as File
 project(':compiler:ir.validation').projectDir = "$rootDir/compiler/ir/ir.validation" as File
 project(':compiler:backend.js').projectDir = "$rootDir/compiler/ir/backend.js" as File
+project(':compiler:backend.ts').projectDir = "$rootDir/compiler/ir/backend.ts" as File
 project(':compiler:backend.wasm').projectDir = "$rootDir/compiler/ir/backend.wasm" as File
 project(':compiler:backend.jvm').projectDir = "$rootDir/compiler/ir/backend.jvm" as File
 project(':compiler:backend.jvm.lower').projectDir = "$rootDir/compiler/ir/backend.jvm/lower" as File
@@ -855,6 +858,7 @@ project(':compiler:backend.jvm.entrypoint').projectDir = "$rootDir/compiler/ir/b
 project(':compiler:ir.serialization.common').projectDir = "$rootDir/compiler/ir/serialization.common" as File
 project(':compiler:ir.serialization.jvm').projectDir = "$rootDir/compiler/ir/serialization.jvm" as File
 project(':compiler:ir.serialization.js').projectDir = "$rootDir/compiler/ir/serialization.js" as File
+project(':compiler:ir.serialization.ts').projectDir = "$rootDir/compiler/ir/serialization.ts" as File
 project(':compiler:ir.serialization.native').projectDir = "$rootDir/compiler/ir/serialization.native" as File
 project(':compiler:ir.interpreter').projectDir = "$rootDir/compiler/ir/ir.interpreter" as File
 project(':kotlin-util-io').projectDir = "$rootDir/compiler/util-io" as File
